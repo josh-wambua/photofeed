@@ -25,6 +25,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Simple instagram clone",
+    "githubUrl": "https://github.com/josh-wambua/photofeed"
   }
 }

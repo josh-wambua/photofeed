@@ -1,8 +1,7 @@
 import React from 'react';
 import {
-    FtatList, StyleSheet, Text, View, Image
+    FlatList, StyleSheet, Text, View, Image
  } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
 
  class feed extends React.Component {
      constructor(props) {
@@ -31,7 +30,7 @@ import { FlatList } from 'react-native-gesture-handler';
              </View>
              <FlatList
                 refreshing={this.state.refresh}
-                onRefresh={() => this.loadNew}
+                onRefresh={this.loadNew}
                 data={this.state.photo_feed}
                 keyExtractor={(item, index) => index.toString()}
                 style={{flex:1, backgroundColor:'#eee'}}
