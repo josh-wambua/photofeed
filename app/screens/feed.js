@@ -9,7 +9,6 @@ import {
  } from 'react-native';
 
  import { f, auth, database } from '../../config/config';
- import firebase from 'firebase';
 
  class feed extends React.Component {
      constructor(props) {
@@ -75,13 +74,13 @@ import {
 
          var that = this;
 
-         firebase.database().ref('photos').orderByChild('posted').once('value').then(function(snapshot) {
+         database.ref('photos').orderByChild('posted').once('value').then(function(snapshot) {
              const exists = (snapshot.val() !== null);
              if (exists) data = snapshot.val();
              var photo_feed = that.state.photo_feed;
              for (var photo in data) {
                  var photoObj = data[photo];
-                 firebase.database().ref('users').child(photoObj.author).once('value').then(function(snapshot) {
+                 database.ref('users').child(photoObj.author).once('value').then(function(snapshot) {
                     const exists = (snapshot.val() !== null);
                     if (exists) data = snapshot.val();
                         photo_feed.push({

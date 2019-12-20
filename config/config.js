@@ -12,9 +12,10 @@ const config = {
   };
 
   // Initialize Firebase
-  firebase.initializeApp(config);
+  if (firebase.apps.length < 1)
+    firebase.initializeApp(config);
 
   export const f = firebase;
-  export const database = firebase.database;
-  export const auth = firebase.auth;
-  export const storage = firebase.storage;
+  export const database = firebase.database();
+  export const auth = firebase.auth();
+  export const storage = firebase.storage();
